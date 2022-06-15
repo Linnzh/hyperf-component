@@ -2,15 +2,16 @@
 
 namespace Linnzh\HyperfComponent\Concern\Model;
 
+use Hyperf\Database\Model\Collection;
+use Hyperf\Database\Model\Model;
 use Hyperf\Database\Model\ModelNotFoundException;
 use Hyperf\ModelCache\CacheableInterface;
 use Hyperf\ModelCache\EagerLoad\EagerLoader;
 use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Collection;
 use Linnzh\HyperfComponent\Param\QueryListParam;
 
 /**
- * @method static findFromCache(int $id)
+ * @method static findFromCache($id): ?Model
  * @method static find($id, $columns = [])
  * @method static with($relations)
  * @method        fill(array $attributes)
@@ -32,13 +33,14 @@ trait Crud
     public static function get(int $id, array $with = [])
     {
         $result = (new Collection());
+        $calledClass = make(static::class);
 
-        if (!(self::class instanceof CacheableInterface)) {
-            !empty($with) && self::with($with);
-            $model = self::find($id);
+        if (!($calledClass instanceof CacheableInterface)) {
+            !empty($with) && static::with($with);
+            $model = static::find($id);
             $model && $result->push($model);
         } else {
-            $model = self::findFromCache($id);
+            $model = static::findFromCache($id);
             $model && $result->push($model);
 
             if (!empty($with)) {
@@ -46,7 +48,6 @@ trait Crud
                 $loader->load($result, $with);
             }
         }
-        $model && $result->push($model);
 
         return $result->first() ?? throw new ModelNotFoundException(static::getNotFoundErrorMessage());
     }
