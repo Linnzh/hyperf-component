@@ -29,10 +29,9 @@ class Tree
         return $out;
     }
 
-
     /**
      * 二维数组转树形结构
-     * 
+     *
      * @param array  $result
      * @param int    $level
      * @param string $pidKeyName
@@ -44,13 +43,15 @@ class Tree
         // 预先找出那些顶级
         $tops = [];
         $ids = array_column($result, 'id');
-        foreach ($result as $key=>$item) {
+
+        foreach ($result as $key => $item) {
             if (!in_array($item[$pidKeyName], $ids, true)) {
-                $tops[] = $item;
+                $tops[$item[$pidKeyName]] = $item;
             }
         }
 
         $list = [];
+
         foreach ($tops as $item) {
             $tree = static::recursion($result, $item[$pidKeyName]);
             $list = array_merge($list, $tree);

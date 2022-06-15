@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Exception;
-
 
 use Hyperf\Server\Exception\ServerException;
 
@@ -17,7 +15,7 @@ abstract class AbstractException extends ServerException
     public function __construct(int $code = 0, ?string $message = null, ?\Throwable $previous = null)
     {
         if (null === $message) {
-            $message = trans('exception.' . $this->getCodeMessage($code));
+            $message = trans($this->getCodeMessage($code));
         }
 
         parent::__construct($message, $code, $previous);
