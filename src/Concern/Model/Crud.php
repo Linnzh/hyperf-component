@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Concern\Model;
-
 
 use Hyperf\Database\Model\ModelNotFoundException;
 use Hyperf\ModelCache\CacheableInterface;
@@ -15,7 +13,7 @@ use Linnzh\HyperfComponent\Param\QueryListParam;
  * @method static findFromCache(int $id)
  * @method static find($id, $columns = [])
  * @method static with($relations)
- * @method fill(array $attributes)
+ * @method        fill(array $attributes)
  */
 trait Crud
 {
@@ -28,11 +26,13 @@ trait Crud
      * @param array $with
      *
      * @return mixed
+     *
      * @throws
      */
     public static function get(int $id, array $with = [])
     {
         $result = (new Collection());
+
         if (!(self::class instanceof CacheableInterface)) {
             !empty($with) && self::with($with);
             $model = self::find($id);

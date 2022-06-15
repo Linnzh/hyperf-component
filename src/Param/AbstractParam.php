@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Param;
-
 
 use Hyperf\Utils\Str;
 

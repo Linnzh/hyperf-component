@@ -1,13 +1,9 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Exception\Handler;
-
-
 
 class RequestExceptionHandler extends AbstractExceptionHandler
 {
-
     /**
      * @inheritDoc
      */

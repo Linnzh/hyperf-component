@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Util\Logger;
-
 
 class JsonFormatter extends \Monolog\Formatter\JsonFormatter
 {

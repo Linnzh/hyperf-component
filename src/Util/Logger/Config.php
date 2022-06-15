@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Util\Logger;
-
 
 final class Config
 {

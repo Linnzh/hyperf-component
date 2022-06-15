@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Constants;
-
 
 abstract class AbstractConstants extends \Hyperf\Constants\AbstractConstants
 {

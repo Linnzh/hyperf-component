@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Param;
-
 
 class QueryWhereParam
 {
@@ -11,8 +9,6 @@ class QueryWhereParam
         public string $operator = '=',
         public mixed $value = null,
         public string $boolean = 'and'
-    )
-    {
+    ) {
     }
-
 }

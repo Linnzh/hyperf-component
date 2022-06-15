@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Visitor;
-
 
 use Carbon\Carbon;
 use Hyperf\Utils\Str;

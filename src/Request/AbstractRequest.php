@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Request;
-
 
 abstract class AbstractRequest extends \Hyperf\Validation\Request\FormRequest
 {

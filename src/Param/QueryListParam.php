@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Param;
-
 
 class QueryListParam
 {
@@ -31,8 +29,7 @@ class QueryListParam
          * @var null|QueryOptionParam
          */
         public ?QueryOptionParam $option = null,
-    )
-    {
+    ) {
     }
 
     /**

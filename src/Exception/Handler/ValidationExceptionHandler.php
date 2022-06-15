@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Exception\Handler;
-
 
 use Hyperf\Validation\ValidationException;
 

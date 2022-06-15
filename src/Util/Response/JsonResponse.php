@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Linnzh\HyperfComponent\Util\Response;
-
 
 use Hyperf\Utils\Codec\Json;
 
