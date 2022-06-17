@@ -10,12 +10,7 @@ use Hyperf\ModelCache\EagerLoad\EagerLoader;
 use Hyperf\Utils\ApplicationContext;
 use Linnzh\HyperfComponent\Param\QueryListParam;
 
-/**
- * @method static findFromCache($id): ?Model
- * @method static find($id, $columns = [])
- * @method static with($relations)
- * @method        fill(array $attributes)
- */
+
 trait Crud
 {
     use Paginator;

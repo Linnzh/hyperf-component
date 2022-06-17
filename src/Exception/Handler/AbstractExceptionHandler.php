@@ -7,6 +7,7 @@ use Hyperf\ExceptionHandler\ExceptionHandler;
 use Hyperf\HttpMessage\Stream\SwooleStream;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\Logger\LoggerFactory;
+use Linnzh\HyperfComponent\Exception\ModelNotFoundException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
@@ -37,6 +38,9 @@ abstract class AbstractExceptionHandler extends ExceptionHandler
     public function handle(\Throwable $throwable, ResponseInterface $response): ResponseInterface
     {
         $this->stopPropagation();
+
+        $throwableName = $throwable::class;
+        $this->logger->notice("捕获异常：{$throwableName}\t位置：". get_called_class());
 
         $message = $this->getErrorMessage($throwable);
 

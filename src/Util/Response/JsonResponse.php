@@ -6,6 +6,9 @@ use Hyperf\Utils\Codec\Json;
 
 class JsonResponse
 {
+    public const SUCCESS = 1;
+    public const ERROR = -1;
+    
     private int $code;
 
     private string $message;
@@ -14,7 +17,7 @@ class JsonResponse
 
     public function __construct($data = null)
     {
-        $this->code = 1;
+        $this->code = self::SUCCESS;
         $this->message = '';
         $this->data = $data;
     }
